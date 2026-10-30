@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
@@ -14,3 +15,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the Oxlint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+=======
+# RICHY-STORE
+RICHY STORE is a modern e-commerce website for shopping smartphones, phone accessories, and electronic gadgets, featuring a premium black-and-gold design, a responsive user interface, shopping cart functionality, and secure Mobile Money and card payments.
+>>>>>>> 57ec6b0166823da6a0c2f7745686d940a42adf62
