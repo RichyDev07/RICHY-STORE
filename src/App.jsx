@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom";
 
-// Import Login component here
 import Login from "./Login.jsx";
 
 function App() {
@@ -13,7 +12,10 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* Display Login component */}
+        {/* Show Login at the root URL */}
+        <Route path="/" element={<Login />} />
+
+        {/* Also allow /Login */}
         <Route path="/Login" element={<Login />} />
 
       </Routes>
