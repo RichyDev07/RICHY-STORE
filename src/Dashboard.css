@@ -1,0 +1,360 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.store-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f5;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #111;
+  color: white;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.brand {
+  padding: 5px 10px 35px;
+}
+
+.brand h2 {
+  font-size: 23px;
+  color: #d4af37;
+  letter-spacing: 1px;
+}
+
+.brand h2 span {
+  color: white;
+}
+
+.brand p {
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+}
+
+.menu-heading {
+  color: #888;
+  font-size: 11px;
+  margin: 15px 10px;
+  letter-spacing: 2px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.menu-item {
+  border: none;
+  background: transparent;
+  color: #bbb;
+  padding: 14px;
+  text-align: left;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background: #d4af37;
+  color: #111;
+}
+
+.menu-item span {
+  font-size: 18px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  border-top: 1px solid #333;
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-avatar,
+.profile {
+  width: 38px;
+  height: 38px;
+  background: #d4af37;
+  color: #111;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.sidebar-bottom h4 {
+  font-size: 13px;
+}
+
+.sidebar-bottom p {
+  color: #999;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* Main area */
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.topbar h2 {
+  font-size: 25px;
+}
+
+.topbar p {
+  color: #888;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.profile {
+  width: 42px;
+  height: 42px;
+}
+
+/* Welcome banner */
+.welcome-banner {
+  background: linear-gradient(120deg, #111, #38301a);
+  color: white;
+  border-radius: 12px;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.welcome-banner h1 {
+  color: #d4af37;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.welcome-banner p {
+  color: #ddd;
+  font-size: 13px;
+}
+
+.banner-icon {
+  font-size: 55px;
+}
+
+/* Statistics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 23px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px #00000008;
+}
+
+.stat-card p {
+  color: #777;
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  font-size: 23px;
+  margin: 15px 0;
+}
+
+.stat-card span {
+  color: #159447;
+  font-size: 11px;
+}
+
+/* Orders table */
+.orders-section {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-header h2 {
+  font-size: 19px;
+}
+
+.section-header button {
+  border: none;
+  background: #111;
+  color: #d4af37;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 600px;
+}
+
+th {
+  color: #777;
+  font-size: 12px;
+  padding: 15px 10px;
+  background: #fafafa;
+}
+
+td {
+  padding: 17px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.completed {
+  background: #e0f5e7;
+  color: #16833e;
+}
+
+.pending {
+  background: #fff1d5;
+  color: #a66a00;
+}
+
+.processing {
+  background: #e5edff;
+  color: #315cb3;
+}
+
+/* Other pages */
+.page-placeholder {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  min-height: 300px;
+}
+
+.page-placeholder h1 {
+  margin-bottom: 15px;
+}
+
+.page-placeholder p {
+  color: #777;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  margin-top: 35px;
+}
+
+/* Responsive design */
+@media (max-width: 1000px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .store-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .brand {
+    padding-bottom: 15px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .menu-item {
+    white-space: nowrap;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .dashboard-main {
+    padding: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner {
+    padding: 22px;
+  }
+
+  .welcome-banner h1 {
+    font-size: 19px;
+  }
+}

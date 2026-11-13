@@ -1,129 +1,107 @@
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     setError("");
 
-    if (!email.trim()) {
-      setError("Please enter your email address.");
+    if (!email || !password) {
+      setError("Please enter your email and password.");
       return;
     }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
-      return;
-    }
+    setLoading(true);
 
-    try {
-      setLoading(true);
-
-      await new Promise((resolve) =>
-        setTimeout(resolve, 1200)
-      );
-
-      alert(`Welcome back to RICHY STORE, ${email}!`);
-
-    } catch {
-      setError("Unable to sign in. Please try again.");
-    } finally {
+    // For now, simulate a successful login.
+    // Later, replace this with your real API request.
+    setTimeout(() => {
       setLoading(false);
-    }
+      navigate("/Dashboard");
+    }, 800);
   };
 
   return (
-    <main className="login-page">
-      <section className="login-card">
-
+    <div className="login-page">
+      <div className="login-card">
         <div className="brand">
-          <span className="brand-icon">🛍️</span>
-          <h1>RICHY STORE</h1>
-          <p>Welcome back. Sign in to continue shopping.</p>
+          <div className="brand-icon">🔐</div>
+          <h1> RICHY STORE</h1>
+          <p>Sign in to continue to your account</p>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate>
-
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email address</label>
 
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="you@example.com"
-              autoComplete="email"
-              required
-            />
+            <div className="input-wrapper">
+              <span className="input-icon">✉️</span>
+
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+            </div>
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
 
-            <div className="password-field">
+            <div className="input-wrapper password-field">
+             
+
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(event) =>
-                  setPassword(event.target.value)
-                }
                 placeholder="Enter your password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 autoComplete="current-password"
                 required
+                
               />
-
+               
               <button
                 type="button"
                 className="toggle-password"
-                onClick={() =>
-                  setShowPassword((value) => !value)
-                }
+                onClick={() => setShowPassword((value) => !value)}
               >
                 {showPassword ? "Hide" : "Show"}
               </button>
+              
             </div>
           </div>
 
           {error && (
             <p className="error-message" role="alert">
-              {error}
+              ⚠️ {error}
             </p>
           )}
 
-          <button
-            type="submit"
-            className="login-button"
-            disabled={loading}
-          >
+          <button className="login-button" type="submit" disabled={loading}>
             {loading ? "Signing in..." : "Sign in"}
           </button>
-
         </form>
 
-        <div className="login-footer">
-          <p>
-            New to RICHY STORE?{" "}
-            <Link to="/register">Create an account</Link>
-          </p>
-
-          <p>
-            <Link to="/forgot-password">
-              Forgot your password?
-            </Link>
-          </p>
-        </div>
-
-      </section>
-    </main>
+        <p className="login-footer">
+          Don’t have an account? <a href="/register">Create one</a>
+        </p>
+      </div>
+    </div>
   );
 }
+
+export default Login;

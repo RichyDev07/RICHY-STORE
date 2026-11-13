@@ -1,23 +1,18 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./Login.jsx";
+import Dashboard from "./dashboard.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Show Login at the root URL */}
         <Route path="/" element={<Login />} />
-
-        {/* Also allow /Login */}
         <Route path="/Login" element={<Login />} />
-
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/Dashboard" element={<Dashboard/>} />
+       
       </Routes>
     </BrowserRouter>
   );
