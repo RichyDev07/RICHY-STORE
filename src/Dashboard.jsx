@@ -1,9 +1,13 @@
 
-import React, { useState } from "react";
+import React from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import "./Dashboard.css";
 
 function Dashboard() {
-  const [activePage, setActivePage] = useState("Dashboard");
+  const location = useLocation();
+
+  const activePage =
+    location.pathname.split("/").pop() || "Dashboard";
 
   const menuItems = [
     { name: "Dashboard", icon: "▦" },
@@ -31,7 +35,6 @@ function Dashboard() {
   return (
     <div className="store-dashboard">
 
-      {/* Sidebar */}
       <aside className="sidebar">
         <div className="brand">
           <h2>RICHY<span>STORE</span></h2>
@@ -39,19 +42,26 @@ function Dashboard() {
         </div>
 
         <p className="menu-heading">MAIN MENU</p>
-
-        <nav>
-          {menuItems.map((item) => (
-            <button
-              key={item.name}
-              className={activePage === item.name ? "menu-item active" : "menu-item"}
-              onClick={() => setActivePage(item.name)}
-            >
-              <span>{item.icon}</span>
-              {item.name}
-            </button>
-          ))}
-        </nav>
+<nav>
+  {menuItems.map((item) => (
+    <Link
+      key={item.name}
+      to={
+        item.name === "Dashboard"
+          ? "/Dashboard"
+          : `/Dashboard/${item.name}`
+      }
+      className={
+        activePage.toLowerCase() === item.name.toLowerCase()
+          ? "menu-item active"
+          : "menu-item"
+      }
+    >
+      <span>{item.icon}</span>
+      {item.name}
+    </Link>
+  ))}
+</nav>
 
         <div className="sidebar-bottom">
           <div className="admin-avatar">R</div>
@@ -62,7 +72,6 @@ function Dashboard() {
         </div>
       </aside>
 
-      {/* Main content */}
       <main className="dashboard-main">
 
         <header className="topbar">
@@ -77,17 +86,18 @@ function Dashboard() {
           </div>
         </header>
 
-        {activePage === "Dashboard" ? (
+        {activePage.toLowerCase() === "dashboard" ? (
           <>
             <section className="welcome-banner">
               <div>
                 <h1>Welcome to RICHY STORE</h1>
-                <p>Manage your products, sales and customers in one place.</p>
+                <p>
+                  Manage your products, sales and customers in one place.
+                </p>
               </div>
               <span className="banner-icon">🛍️</span>
             </section>
 
-            {/* Statistics */}
             <section className="stats-grid">
               {stats.map((stat) => (
                 <div className="stat-card" key={stat.title}>
@@ -98,13 +108,10 @@ function Dashboard() {
               ))}
             </section>
 
-            {/* Orders */}
             <section className="orders-section">
               <div className="section-header">
                 <h2>Recent Orders</h2>
-                <button onClick={() => setActivePage("Orders")}>
-                  View All
-                </button>
+                <Link to="/Dashboard/Orders">View All</Link>
               </div>
 
               <div className="table-container">
@@ -139,13 +146,7 @@ function Dashboard() {
             </section>
           </>
         ) : (
-          <section className="page-placeholder">
-            <h1>{activePage}</h1>
-            <p>
-              Welcome to the {activePage} section of RICHY STORE.
-              This section is ready for its management features.
-            </p>
-          </section>
+          <Outlet />
         )}
 
         <footer>

@@ -1,0 +1,257 @@
+
+/* ==============================
+   RICHY STORE - CHECKOUT PAGE
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+.checkout-page {
+  min-height: 100vh;
+  background: #f7f7f7;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+}
+
+/* HEADER */
+.checkout-header {
+  background: #080808;
+  color: white;
+  padding: 22px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-header h2 {
+  color: #d6a83b;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.checkout-header p {
+  color: #ccc;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+/* MAIN CONTAINER */
+.checkout-container {
+  max-width: 1150px;
+  margin: 45px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* FORM AND SUMMARY CARDS */
+.checkout-form-section,
+.order-summary {
+  background: #fff;
+  padding: 32px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+.checkout-form-section:hover,
+.order-summary:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+}
+
+/* FORM HEADINGS */
+.checkout-form-section h1 {
+  color: #111;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.checkout-form-section h3 {
+  color: #b58a26;
+  font-size: 18px;
+  margin-top: 28px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* LABELS */
+.checkout-form-section label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+/* INPUTS */
+.checkout-form-section input,
+.checkout-form-section textarea,
+.checkout-form-section select {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fafafa;
+  color: #222;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.checkout-form-section input:focus,
+.checkout-form-section textarea:focus,
+.checkout-form-section select:focus {
+  border-color: #d6a83b;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(214, 168, 59, 0.13);
+}
+
+.checkout-form-section textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* PLACE ORDER BUTTON */
+.place-order-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 28px;
+  background: linear-gradient(135deg, #d6a83b, #f0cb68);
+  color: #111;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.place-order-btn:hover {
+  background: #111;
+  color: #d6a83b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.place-order-btn:active {
+  transform: scale(0.98);
+}
+
+/* ORDER SUMMARY */
+.order-summary h2 {
+  color: #111;
+  font-size: 23px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d6a83b;
+  padding-bottom: 14px;
+}
+
+.order-summary img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  margin: 15px 0;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.order-summary h3 {
+  color: #222;
+  font-size: 19px;
+  margin: 12px 0;
+}
+
+/* SUMMARY ROWS */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 15px;
+  color: #555;
+}
+
+.summary-row strong {
+  color: #111;
+}
+
+.summary-row.total {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+}
+
+.summary-row.total strong {
+  color: #b58a26;
+  font-size: 22px;
+}
+
+/* CHECKOUT NOTE */
+.checkout-note {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 22px;
+  padding: 12px;
+  background: #faf7ef;
+  border-left: 3px solid #d6a83b;
+  border-radius: 5px;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 750px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+    margin: 15px auto;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .checkout-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .checkout-form-section,
+  .order-summary {
+    padding: 23px 18px;
+  }
+
+  .checkout-form-section h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .checkout-header h2 {
+    font-size: 21px;
+  }
+
+  .checkout-form-section,
+  .order-summary {
+    padding: 18px 14px;
+  }
+
+  .summary-row.total {
+    font-size: 17px;
+  }
+}
